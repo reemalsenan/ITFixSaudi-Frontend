@@ -47,13 +47,15 @@ export default function TechRegister() {
                 <input type="text" name="iban" onChange={(e)=>techChangeHandler(e)}></input>
 
                 <label>Device type: </label>
-                <select name="deviceType">
+                <select name="deviceType" onChange={(e)=>techChangeHandler(e)}>
+                <option>Choose a device</option>
                 <option value="phone">phone</option>
                 <option value="computer">computer</option>
                 </select>
 
                 <label>Software type: </label>
-                <select name="softwareType">
+                <select name="softwareType" onChange={(e)=>techChangeHandler(e)}>
+                <option>Choose a software</option>
                 <option value="IOS">IOS</option>
                 <option value="Android">Android</option>
                 </select>
