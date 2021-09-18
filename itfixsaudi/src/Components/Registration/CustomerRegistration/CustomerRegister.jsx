@@ -28,7 +28,7 @@ export default function CustomerRegister() {
                 setFlag(true)
                 setMessage(data.data.message)
                 setSucess(true)
-                setTimeout(() => history.push('/'), 2000)
+                setTimeout(() => history.push('/'), 1000)
             }).catch(err => {
                 setFlag(true)
                 setSucess(false)
