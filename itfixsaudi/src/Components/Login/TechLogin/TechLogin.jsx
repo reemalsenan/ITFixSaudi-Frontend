@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router'
+import { Redirect, useHistory } from 'react-router'
 
-export default function TechLogin() {
+export default function TechLogin(props) {
 
-    const [tech, setTech] = useState({})
-    const [toNext, setToNext] = useState(false)
+    const [tech, setTech] = useState()
+    // const [toNext, setToNext] = useState(false)
+    const history = useHistory()
 
     const changeTechHandler = ({ target }) => setTech({ ...tech, [target.name]: target.value })
 
@@ -14,7 +15,10 @@ export default function TechLogin() {
         axios.post('http://localhost:4000/api/v1/technician/login', tech)
             .then(data => {
                 console.log(data)
-                setToNext(true)
+                // setToNext(true)
+                localStorage.setItem("token", data.data.token)
+                props.loginFucntion()
+                history.push("/")
             }).catch(err => {
                 console.log(err)
             })
@@ -33,7 +37,7 @@ export default function TechLogin() {
                 <input type="Password" name="password" onChange={(e) => changeTechHandler(e)}></input>
 
                 <button type="submit">Submit</button>
-                {toNext ? <Redirect to="/" /> : null}
+                {/* {toNext ? <Redirect to="/" /> : null} */}
 
             </form>
         </div>
