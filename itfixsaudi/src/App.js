@@ -8,6 +8,8 @@ import CustomerRegister from "./Components/Registration/CustomerRegistration/Cus
 import Register from "./Components/Registration/Register";
 import TechRegister from "./Components/Registration/TechRegistratoin/TechRegister";
 import {decodeToken, isExpired} from "react-jwt"
+import Services from "./Components/Services/Services";
+import AllTechnicians from "./Components/Services/AllTechnicians";
 
 function App() {
   const [user, setUser] = useState({});
@@ -46,6 +48,9 @@ function App() {
       <Route exact path="/register" component={Register} />
       <Route exact path="/Register/Customer" component={CustomerRegister} />
       <Route exact path="/Register/Technician" component={TechRegister} />
+
+      <Route exact path="/Services" component={Services} />
+      <Route exact path="/Services/Technicians" component={AllTechnicians} />
       
       </Switch>
       </BrowserRouter>

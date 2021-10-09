@@ -26,7 +26,7 @@ export default function Navbar(props) {
              <a onClick={()=> logOut()} href="" type="button"> Logout</a>
             </>
             }
-            
+            <a href="/Services">Services</a>
            
         </div>
        </>
